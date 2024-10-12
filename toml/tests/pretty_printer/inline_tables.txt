@@ -1,0 +1,23 @@
+==========================================================
+Inline table
+==========================================================
+[name]
+
+key = { value = "value" }
+git = { url = "https://github.com" }
+----------------------------------------------------------
+[name]
+key = { value = "value" }
+git = { url = "https://github.com" }
+
+==========================================================
+Inline table with several values
+==========================================================
+[name]
+
+key = { value = "value", value2 = "value2" }
+git = { url = "https://github.com", other = 100 }
+----------------------------------------------------------
+[name]
+key = { value = "value", value2 = "value2" }
+git = { url = "https://github.com", other = 100 }

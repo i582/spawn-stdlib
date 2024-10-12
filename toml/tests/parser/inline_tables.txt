@@ -1,0 +1,169 @@
+==========================================================
+Inline table
+==========================================================
+[table]
+
+git = { version = "2.0.0" }
+git2 = { version = "2.0.0", path = "/usr/bin/git" }
+git3 = { version = "2.0.0", path = "/usr/bin/git", url = "https://git-scm.com/" }
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: git
+          value: toml.Value(toml.InlineTable{
+              ff: []
+              ff_after: []
+              entries: [toml.KeyValue{
+                ff: []
+                ff_after: []
+                key: version
+                value: toml.Value(toml.String{
+                    ff: []
+                    ff_after: []
+                    pos: 27:7
+                    tok: string
+                    value: '"2.0.0"'
+                })
+            }]
+          })
+      }, toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: git2
+          value: toml.Value(toml.InlineTable{
+              ff: []
+              ff_after: []
+              entries: [toml.KeyValue{
+                ff: []
+                ff_after: []
+                key: version
+                value: toml.Value(toml.String{
+                    ff: []
+                    ff_after: []
+                    pos: 56:7
+                    tok: string
+                    value: '"2.0.0"'
+                })
+            }, toml.KeyValue{
+                ff: []
+                ff_after: []
+                key: path
+                value: toml.Value(toml.String{
+                    ff: []
+                    ff_after: []
+                    pos: 72:14
+                    tok: string
+                    value: '"/usr/bin/git"'
+                })
+            }]
+          })
+      }, toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: git3
+          value: toml.Value(toml.InlineTable{
+              ff: []
+              ff_after: []
+              entries: [toml.KeyValue{
+                ff: []
+                ff_after: []
+                key: version
+                value: toml.Value(toml.String{
+                    ff: []
+                    ff_after: []
+                    pos: 108:7
+                    tok: string
+                    value: '"2.0.0"'
+                })
+            }, toml.KeyValue{
+                ff: []
+                ff_after: []
+                key: path
+                value: toml.Value(toml.String{
+                    ff: []
+                    ff_after: []
+                    pos: 124:14
+                    tok: string
+                    value: '"/usr/bin/git"'
+                })
+            }, toml.KeyValue{
+                ff: []
+                ff_after: []
+                key: url
+                value: toml.Value(toml.String{
+                    ff: []
+                    ff_after: []
+                    pos: 146:22
+                    tok: string
+                    value: '"https://git-scm.com/"'
+                })
+            }]
+          })
+      }]
+   }]
+}
+
+==========================================================
+Inline table with newline inside string
+==========================================================
+[table]
+
+git = { version = """
+2.0.0""" }
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: git
+          value: toml.Value(toml.InlineTable{
+              ff: []
+              ff_after: []
+              entries: [toml.KeyValue{
+                ff: []
+                ff_after: []
+                key: version
+                value: toml.Value(toml.String{
+                    ff: []
+                    ff_after: []
+                    pos: 27:12
+                    tok: triple_string
+                    value: '"""
+            2.0.0"""'
+                })
+            }]
+          })
+      }]
+   }]
+}
+
+==========================================================
+Inline table with newline
+==========================================================
+[table]
+
+git = { version = "2.0.0",
+        path = "/usr/bin/git" }
+----------------------------------------------------------
+parse error at 35:0: unexpected newline in inline table
+
+==========================================================
+Inline table with trailing comma
+==========================================================
+[table]
+
+git = { version = "2.0.0", }
+----------------------------------------------------------
+parse error at 36:1: trailing comma is not allowed in inline table

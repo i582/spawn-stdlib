@@ -1,0 +1,7 @@
+[package]
+name = "sqlite"
+version = "0.1.0"
+description = "SQLite wrapper for Spawn"
+license = "MIT"
+
+[dependencies]

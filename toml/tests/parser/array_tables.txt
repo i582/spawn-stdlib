@@ -1,0 +1,46 @@
+==========================================================
+Inline table
+==========================================================
+[[foo]]
+name = "bar"
+
+[[foo]]
+name = "baz"
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: true
+       key: foo
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: name
+          value: toml.Value(toml.String{
+              ff: []
+              ff_after: []
+              pos: 15:5
+              tok: string
+              value: '"bar"'
+          })
+      }]
+   }, toml.Table{
+       ff: []
+       ff_after: []
+       is_array: true
+       key: foo
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: name
+          value: toml.Value(toml.String{
+              ff: []
+              ff_after: []
+              pos: 37:5
+              tok: string
+              value: '"baz"'
+          })
+      }]
+   }]
+}

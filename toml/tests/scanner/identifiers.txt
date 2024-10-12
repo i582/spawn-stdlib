@@ -1,0 +1,115 @@
+==========================================================
+Identifiers
+==========================================================
+key
+value
+----------------------------------------------------------
+0:3: ident (key)
+3:0: newline (\n)
+4:5: ident (value)
+9:0: eof ()
+
+==========================================================
+Identifiers with dashes
+==========================================================
+key-with-dash
+value-with-dash
+----------------------------------------------------------
+0:13: ident (key-with-dash)
+13:0: newline (\n)
+14:15: ident (value-with-dash)
+29:0: eof ()
+
+==========================================================
+Identifiers with numbers
+==========================================================
+key10
+value4us
+----------------------------------------------------------
+0:5: ident (key10)
+5:0: newline (\n)
+6:8: ident (value4us)
+14:0: eof ()
+
+==========================================================
+Identifiers starts with dash
+TODO
+==========================================================
+-key10
+-value4us
+----------------------------------------------------------
+parse error at 0:2: decimal literal has no digits after `-k`
+
+parse error at 7:2: decimal literal has no digits after `-v`
+
+==========================================================
+Identifiers starts with underscore
+==========================================================
+_key10
+_value4us
+----------------------------------------------------------
+0:6: ident (_key10)
+6:0: newline (\n)
+7:9: ident (_value4us)
+16:0: eof ()
+
+==========================================================
+Only dash/underscore key
+==========================================================
+--
+__
+----------------------------------------------------------
+parse error at 0:2: decimal literal has no digits after `--`
+
+parse error at 1:2: decimal literal has no digits after `-
+`
+
+==========================================================
+Dotted identifiers
+==========================================================
+physical.color
+physical.shape
+----------------------------------------------------------
+0:8: ident (physical)
+8:1: dot ()
+9:5: ident (color)
+14:0: newline (\n)
+15:8: ident (physical)
+23:1: dot ()
+24:5: ident (shape)
+29:0: eof ()
+
+==========================================================
+Dotted identifiers with spaces
+==========================================================
+fruit.name = "banana"
+fruit. color = "yellow"
+fruit . flavor = "banana"
+----------------------------------------------------------
+0:5: ident (fruit)
+5:1: dot ()
+6:4: ident (name)
+10:1: whitespace ( )
+11:1: assign ()
+12:1: whitespace ( )
+13:8: string ("banana")
+21:0: newline (\n)
+22:5: ident (fruit)
+27:1: dot ()
+28:1: whitespace ( )
+29:5: ident (color)
+34:1: whitespace ( )
+35:1: assign ()
+36:1: whitespace ( )
+37:8: string ("yellow")
+45:0: newline (\n)
+46:5: ident (fruit)
+51:1: whitespace ( )
+52:1: dot ()
+53:1: whitespace ( )
+54:6: ident (flavor)
+60:1: whitespace ( )
+61:1: assign ()
+62:1: whitespace ( )
+63:8: string ("banana")
+71:0: eof ()

@@ -1,0 +1,315 @@
+==========================================================
+Simple keys
+==========================================================
+[table]
+
+key = 10.0
+value = 209
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: key
+          value: toml.Value(toml.Float{
+              ff: []
+              ff_after: []
+              pos: 15:4
+              value: '10.0'
+          })
+      }, toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: value
+          value: toml.Value(toml.Integer{
+              ff: []
+              ff_after: []
+              pos: 28:3
+              value: '209'
+          })
+      }]
+   }]
+}
+
+==========================================================
+Simple string keys
+==========================================================
+[table]
+
+"key" = 10
+"value" = 209
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: key
+          value: toml.Value(toml.Integer{
+              ff: []
+              ff_after: []
+              pos: 17:2
+              value: '10'
+          })
+      }, toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: value
+          value: toml.Value(toml.Integer{
+              ff: []
+              ff_after: []
+              pos: 30:3
+              value: '209'
+          })
+      }]
+   }]
+}
+
+==========================================================
+Dotted keys
+==========================================================
+[table]
+
+key.subkey = 10
+value.of.subkey = 209
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: key.subkey
+          value: toml.Value(toml.Integer{
+              ff: []
+              ff_after: []
+              pos: 22:2
+              value: '10'
+          })
+      }, toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: value.of.subkey
+          value: toml.Value(toml.Integer{
+              ff: []
+              ff_after: []
+              pos: 43:3
+              value: '209'
+          })
+      }]
+   }]
+}
+
+==========================================================
+Dotted keys with strings
+==========================================================
+[table]
+
+key."subkey with spaces" = 10
+value."of".subkey = false
+"ʎǝʞ" = "value"
+site."google.com" = true
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: key.subkey with spaces
+          value: toml.Value(toml.Integer{
+              ff: []
+              ff_after: []
+              pos: 36:2
+              value: '10'
+          })
+      }, toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: value.of.subkey
+          value: toml.Value(toml.Boolean{
+              ff: []
+              ff_after: []
+              pos: 59:5
+              value: false
+          })
+      }, toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: ʎǝʞ
+          value: toml.Value(toml.String{
+              ff: []
+              ff_after: []
+              pos: 76:7
+              tok: string
+              value: '"value"'
+          })
+      }, toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: site.google.com
+          value: toml.Value(toml.Boolean{
+              ff: []
+              ff_after: []
+              pos: 104:4
+              value: true
+          })
+      }]
+   }]
+}
+
+==========================================================
+Dotted keys with spaces
+==========================================================
+[table]
+
+fruit.name = "banana"
+fruit. color = "yellow"
+fruit . flavor = "banana"
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: fruit.name
+          value: toml.Value(toml.String{
+              ff: []
+              ff_after: []
+              pos: 22:8
+              tok: string
+              value: '"banana"'
+          })
+      }, toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: fruit.color
+          value: toml.Value(toml.String{
+              ff: []
+              ff_after: []
+              pos: 46:8
+              tok: string
+              value: '"yellow"'
+          })
+      }, toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: fruit.flavor
+          value: toml.Value(toml.String{
+              ff: []
+              ff_after: []
+              pos: 72:8
+              tok: string
+              value: '"banana"'
+          })
+      }]
+   }]
+}
+
+==========================================================
+Dotted keys like float
+==========================================================
+[table]
+
+3.14159 = "pi"
+----------------------------------------------------------
+parse error at 9:7: unexpected token float, expected string or identifier
+
+parse error at 9:7: unexpected token float, expected assign
+
+parse error at 17:1: unexpected token assign
+
+parse error at 17:1: unexpected token assign
+
+parse error at 17:1: unexpected token assign, expected newline
+
+parse error at 17:1: unexpected token assign, expected string or identifier
+
+==========================================================
+Keys without new line
+==========================================================
+[table]
+
+foo = 100 bar = 200
+----------------------------------------------------------
+parse error at 19:3: unexpected token ident, expected newline
+
+==========================================================
+Key without value
+==========================================================
+[table]
+
+foo =
+bar = 10
+----------------------------------------------------------
+parse error at 14:0: unexpected token newline
+
+parse error at 14:0: unexpected token newline
+
+==========================================================
+Empty key
+==========================================================
+[table]
+
+"" = "blank"
+'' = 'blank'
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: 
+          value: toml.Value(toml.String{
+              ff: []
+              ff_after: []
+              pos: 14:7
+              tok: string
+              value: '"blank"'
+          })
+      }, toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: 
+          value: toml.Value(toml.String{
+              ff: []
+              ff_after: []
+              pos: 27:7
+              tok: string
+              value: ''blank''
+          })
+      }]
+   }]
+}
+
+==========================================================
+Key value without key
+==========================================================
+[table]
+
+= "blank"
+----------------------------------------------------------
+parse error at 9:1: unexpected token assign, expected string or identifier

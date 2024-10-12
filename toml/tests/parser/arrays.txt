@@ -1,0 +1,485 @@
+==========================================================
+Empty array
+==========================================================
+[table]
+
+fruits = []
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: fruits
+          value: toml.Value(toml.TomlArray{
+              ff: []
+              ff_after: []
+              values: []
+          })
+      }]
+   }]
+}
+
+==========================================================
+Integer array
+==========================================================
+[table]
+
+fruits = [1, 2, 3]
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: fruits
+          value: toml.Value(toml.TomlArray{
+              ff: []
+              ff_after: []
+              values: [toml.Value(toml.Integer{
+                ff: []
+                ff_after: []
+                pos: 19:1
+                value: '1'
+            }), toml.Value(toml.Integer{
+                ff: []
+                ff_after: []
+                pos: 22:1
+                value: '2'
+            }), toml.Value(toml.Integer{
+                ff: []
+                ff_after: []
+                pos: 25:1
+                value: '3'
+            })]
+          })
+      }]
+   }]
+}
+
+==========================================================
+String array
+==========================================================
+[table]
+
+fruits = [ "red", "yellow", "green" ]
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: fruits
+          value: toml.Value(toml.TomlArray{
+              ff: []
+              ff_after: []
+              values: [toml.Value(toml.String{
+                ff: []
+                ff_after: []
+                pos: 20:5
+                tok: string
+                value: '"red"'
+            }), toml.Value(toml.String{
+                ff: []
+                ff_after: []
+                pos: 27:8
+                tok: string
+                value: '"yellow"'
+            }), toml.Value(toml.String{
+                ff: []
+                ff_after: []
+                pos: 37:7
+                tok: string
+                value: '"green"'
+            })]
+          })
+      }]
+   }]
+}
+
+==========================================================
+Nested array
+==========================================================
+[table]
+
+fruits = [ [ 1, 2 ], [3, 4, 5] ]
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: fruits
+          value: toml.Value(toml.TomlArray{
+              ff: []
+              ff_after: []
+              values: [toml.Value(toml.TomlArray{
+                ff: []
+                ff_after: []
+                values: [toml.Value(toml.Integer{
+                   ff: []
+                   ff_after: []
+                   pos: 22:1
+                   value: '1'
+               }), toml.Value(toml.Integer{
+                   ff: []
+                   ff_after: []
+                   pos: 25:1
+                   value: '2'
+               })]
+            }), toml.Value(toml.TomlArray{
+                ff: []
+                ff_after: []
+                values: [toml.Value(toml.Integer{
+                   ff: []
+                   ff_after: []
+                   pos: 31:1
+                   value: '3'
+               }), toml.Value(toml.Integer{
+                   ff: []
+                   ff_after: []
+                   pos: 34:1
+                   value: '4'
+               }), toml.Value(toml.Integer{
+                   ff: []
+                   ff_after: []
+                   pos: 37:1
+                   value: '5'
+               })]
+            })]
+          })
+      }]
+   }]
+}
+
+==========================================================
+Mixed nested array
+==========================================================
+[table]
+
+fruits = [ [ 1, 2 ], ["a", "b", "c"] ]
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: fruits
+          value: toml.Value(toml.TomlArray{
+              ff: []
+              ff_after: []
+              values: [toml.Value(toml.TomlArray{
+                ff: []
+                ff_after: []
+                values: [toml.Value(toml.Integer{
+                   ff: []
+                   ff_after: []
+                   pos: 22:1
+                   value: '1'
+               }), toml.Value(toml.Integer{
+                   ff: []
+                   ff_after: []
+                   pos: 25:1
+                   value: '2'
+               })]
+            }), toml.Value(toml.TomlArray{
+                ff: []
+                ff_after: []
+                values: [toml.Value(toml.String{
+                   ff: []
+                   ff_after: []
+                   pos: 31:3
+                   tok: string
+                   value: '"a"'
+               }), toml.Value(toml.String{
+                   ff: []
+                   ff_after: []
+                   pos: 36:3
+                   tok: string
+                   value: '"b"'
+               }), toml.Value(toml.String{
+                   ff: []
+                   ff_after: []
+                   pos: 41:3
+                   tok: string
+                   value: '"c"'
+               })]
+            })]
+          })
+      }]
+   }]
+}
+
+==========================================================
+String array with different styles
+==========================================================
+[table]
+
+fruits = [ "all", 'strings', """are the same""", '''type''' ]
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: fruits
+          value: toml.Value(toml.TomlArray{
+              ff: []
+              ff_after: []
+              values: [toml.Value(toml.String{
+                ff: []
+                ff_after: []
+                pos: 20:5
+                tok: string
+                value: '"all"'
+            }), toml.Value(toml.String{
+                ff: []
+                ff_after: []
+                pos: 27:9
+                tok: string
+                value: ''strings''
+            }), toml.Value(toml.String{
+                ff: []
+                ff_after: []
+                pos: 38:18
+                tok: triple_string
+                value: '"""are the same"""'
+            }), toml.Value(toml.String{
+                ff: []
+                ff_after: []
+                pos: 58:10
+                tok: triple_string
+                value: ''''type''''
+            })]
+          })
+      }]
+   }]
+}
+
+==========================================================
+String array with several lines
+==========================================================
+[table]
+
+fruits = [
+    "apple",
+    "banana",
+    "cherry"
+]
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: fruits
+          value: toml.Value(toml.TomlArray{
+              ff: []
+              ff_after: []
+              values: [toml.Value(toml.String{
+                ff: []
+                ff_after: []
+                pos: 24:7
+                tok: string
+                value: '"apple"'
+            }), toml.Value(toml.String{
+                ff: []
+                ff_after: []
+                pos: 37:8
+                tok: string
+                value: '"banana"'
+            }), toml.Value(toml.String{
+                ff: []
+                ff_after: []
+                pos: 51:8
+                tok: string
+                value: '"cherry"'
+            })]
+          })
+      }]
+   }]
+}
+
+==========================================================
+String array with several lines and trailing comma
+==========================================================
+[table]
+
+fruits = [
+    "apple",
+    "banana",
+    "cherry",
+]
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: fruits
+          value: toml.Value(toml.TomlArray{
+              ff: []
+              ff_after: []
+              values: [toml.Value(toml.String{
+                ff: []
+                ff_after: []
+                pos: 24:7
+                tok: string
+                value: '"apple"'
+            }), toml.Value(toml.String{
+                ff: []
+                ff_after: []
+                pos: 37:8
+                tok: string
+                value: '"banana"'
+            }), toml.Value(toml.String{
+                ff: []
+                ff_after: []
+                pos: 51:8
+                tok: string
+                value: '"cherry"'
+            })]
+          })
+      }]
+   }]
+}
+
+==========================================================
+Array with inline tables
+==========================================================
+[table]
+
+fruits = [
+    { name = "apple", color = "red" },
+    { name = "banana", color = "yellow" },
+    { name = "cherry", color = "red" }
+]
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: fruits
+          value: toml.Value(toml.TomlArray{
+              ff: []
+              ff_after: []
+              values: [toml.Value(toml.InlineTable{
+                ff: []
+                ff_after: []
+                entries: [toml.KeyValue{
+                   ff: []
+                   ff_after: []
+                   key: name
+                   value: toml.Value(toml.String{
+                       ff: []
+                       ff_after: []
+                       pos: 33:7
+                       tok: string
+                       value: '"apple"'
+                   })
+               }, toml.KeyValue{
+                   ff: []
+                   ff_after: []
+                   key: color
+                   value: toml.Value(toml.String{
+                       ff: []
+                       ff_after: []
+                       pos: 50:5
+                       tok: string
+                       value: '"red"'
+                   })
+               }]
+            }), toml.Value(toml.InlineTable{
+                ff: []
+                ff_after: []
+                entries: [toml.KeyValue{
+                   ff: []
+                   ff_after: []
+                   key: name
+                   value: toml.Value(toml.String{
+                       ff: []
+                       ff_after: []
+                       pos: 72:8
+                       tok: string
+                       value: '"banana"'
+                   })
+               }, toml.KeyValue{
+                   ff: []
+                   ff_after: []
+                   key: color
+                   value: toml.Value(toml.String{
+                       ff: []
+                       ff_after: []
+                       pos: 90:8
+                       tok: string
+                       value: '"yellow"'
+                   })
+               }]
+            }), toml.Value(toml.InlineTable{
+                ff: []
+                ff_after: []
+                entries: [toml.KeyValue{
+                   ff: []
+                   ff_after: []
+                   key: name
+                   value: toml.Value(toml.String{
+                       ff: []
+                       ff_after: []
+                       pos: 115:8
+                       tok: string
+                       value: '"cherry"'
+                   })
+               }, toml.KeyValue{
+                   ff: []
+                   ff_after: []
+                   key: color
+                   value: toml.Value(toml.String{
+                       ff: []
+                       ff_after: []
+                       pos: 133:5
+                       tok: string
+                       value: '"red"'
+                   })
+               }]
+            })]
+          })
+      }]
+   }]
+}

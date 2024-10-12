@@ -1,0 +1,25 @@
+==========================================================
+Table with key values
+==========================================================
+[table]
+
+key = value
+other_key = other_value
+----------------------------------------------------------
+0:1: lbrack ()
+1:5: ident (table)
+6:1: rbrack ()
+7:0: newline (\n)
+8:0: newline (\n)
+9:3: ident (key)
+12:1: whitespace ( )
+13:1: assign ()
+14:1: whitespace ( )
+15:5: ident (value)
+20:0: newline (\n)
+21:9: ident (other_key)
+30:1: whitespace ( )
+31:1: assign ()
+32:1: whitespace ( )
+33:11: ident (other_value)
+44:0: eof ()

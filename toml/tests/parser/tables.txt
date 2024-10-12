@@ -1,0 +1,142 @@
+==========================================================
+Root table with key value
+==========================================================
+key = 100
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: 
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: key
+          value: toml.Value(toml.Integer{
+              ff: []
+              ff_after: []
+              pos: 6:3
+              value: '100'
+          })
+      }]
+   }]
+}
+
+==========================================================
+Table with key values
+==========================================================
+[table]
+
+key = 100
+other_key = "other_value"
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: key
+          value: toml.Value(toml.Integer{
+              ff: []
+              ff_after: []
+              pos: 15:3
+              value: '100'
+          })
+      }, toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: other_key
+          value: toml.Value(toml.String{
+              ff: []
+              ff_after: []
+              pos: 31:13
+              tok: string
+              value: '"other_value"'
+          })
+      }]
+   }]
+}
+
+==========================================================
+Table with dotted name
+==========================================================
+[table.foo]
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table.foo
+       entries: []
+   }]
+}
+
+==========================================================
+Table with dotted key value
+==========================================================
+[table]
+
+foo.bar = 100
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: foo.bar
+          value: toml.Value(toml.Integer{
+              ff: []
+              ff_after: []
+              pos: 19:3
+              value: '100'
+          })
+      }]
+   }]
+}
+
+==========================================================
+Table with dotted key value with strings
+==========================================================
+[table]
+
+foo."bar hello".baz = 100
+----------------------------------------------------------
+toml.File{
+    tables: [toml.Table{
+       ff: []
+       ff_after: []
+       is_array: false
+       key: table
+       entries: [toml.KeyValue{
+          ff: []
+          ff_after: []
+          key: foo.bar hello.baz
+          value: toml.Value(toml.Integer{
+              ff: []
+              ff_after: []
+              pos: 31:3
+              value: '100'
+          })
+      }]
+   }]
+}
+
+==========================================================
+Table with empty key
+==========================================================
+[]
+
+key = 100
+other_key = "other_value"
+----------------------------------------------------------
+parse error at 1:1: unexpected token rbrack, expected string or identifier
